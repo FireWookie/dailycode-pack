@@ -32,6 +32,8 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.ui)
                 implementation(compose.material3)
+
+                implementation(libs.decompose)
             }
         }
         val commonTest by getting {

@@ -30,13 +30,12 @@ kotlin {
 
         }
         commonMain.dependencies {
-//            implementation(project(":library"))
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
-            implementation("ru.dailycode.pack:decompose-ext:1.0.0")
+            implementation(project(":decompose-ext"))
         }
     }
 }

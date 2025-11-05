@@ -8,11 +8,30 @@ kotlin = "2.2.20"
 vanniktechMavenPublish = "0.34.0"
 androidx-activity = "1.10.1"
 
-compose-plugin = "1.8.2"
+compose-plugin = "1.9.2"
+
+#ArkIvanov
+decomposeVersion = "3.4.0"
+mvikotlinVersion = "4.3.0"
+essentyVersion = "2.5.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activity" }
+
+#ArkIvanov
+decompose = { module = "com.arkivanov.decompose:decompose", version.ref = "decomposeVersion" }
+decompose-compose = { module = "com.arkivanov.decompose:extensions-compose-experimental", version.ref = "decomposeVersion" }
+
+mvikotlin = { group = "com.arkivanov.mvikotlin", name = "mvikotlin", version.ref = "mvikotlinVersion" }
+mvikotlin-main = { group = "com.arkivanov.mvikotlin", name = "mvikotlin-main", version.ref = "mvikotlinVersion" }
+mvikotlin-logging = { group = "com.arkivanov.mvikotlin", name = "mvikotlin-logging", version.ref = "mvikotlinVersion" }
+mvikotlin-coroutines = { group = "com.arkivanov.mvikotlin", name = "mvikotlin-extensions-coroutines", version.ref = "mvikotlinVersion" }
+
+essenty-lifecycle = { module = "com.arkivanov.essenty:lifecycle", version.ref = "essentyVersion" }
+essenty-lifecycle-coroutines = { module = "com.arkivanov.essenty:lifecycle-coroutines", version.ref = "essentyVersion" }
+essenty-backHandler = { module = "com.arkivanov.essenty:back-handler", version.ref = "essentyVersion" }
+
 
 [plugins]
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
