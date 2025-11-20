@@ -13,6 +13,7 @@ plugins {
 version = extra["library_version"].toString()
 
 kotlin {
+    explicitApiWarning()
     jvm()
     androidTarget {
         publishLibraryVariants("release")
@@ -26,6 +27,7 @@ kotlin {
     iosSimulatorArm64()
 
     sourceSets {
+
         val commonMain by getting {
             dependencies {
                 implementation(compose.runtime)

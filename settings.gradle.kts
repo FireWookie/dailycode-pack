@@ -38,3 +38,5 @@ rootProject.name = "ru.dailycode.pack"
 include(":compose-ext")
 include(":decompose-ext")
 include(":sample:composeApp")
+include(":logger")
+include(":sample:all_targets")

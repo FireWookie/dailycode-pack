@@ -21,9 +21,8 @@ public fun Modifier.interactiveElement(
     onClick: (() -> Unit)? = null
 ): Modifier = this
     .clip(shape)
-    .thenIf(onClick) {
+    .thenIf(onClick) { onClick ->
         platformClickable(
-//            contentColor = contentColor ?: Color.Unspecified,
             enabled = enabled,
             onClick = onClick
         )

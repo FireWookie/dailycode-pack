@@ -1,19 +1,18 @@
-import UIKit
+
 import SwiftUI
-import ComposeApp
-
-struct ComposeView: UIViewControllerRepresentable {
-    func makeUIViewController(context: Context) -> UIViewController {
-        MainViewControllerKt.MainViewController()
-    }
-
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
-}
+import Shared
 
 struct ContentView: View {
+    init() {
+        _ = App()
+    }
     var body: some View {
-        ComposeView()
-                .ignoresSafeArea(.keyboard) // Compose has own keyboard handler
+        ZStack {
+            Text(
+                "Hello!"
+            )
+        }
+        .ignoresSafeArea(.keyboard) // Compose has own keyboard handler
     }
 }
 
