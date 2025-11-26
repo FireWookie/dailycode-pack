@@ -32,8 +32,10 @@ kotlin {
                 implementation(compose.foundation)
                 implementation(compose.ui)
                 implementation(compose.material3)
+                implementation(project(":logger"))
 
-                implementation(libs.decompose)
+                api(libs.decompose)
+                api(libs.decompose.compose)
             }
         }
         val commonTest by getting {

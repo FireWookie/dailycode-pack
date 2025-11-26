@@ -35,4 +35,3 @@ public fun Modifier.interactiveElement(
             edgeBorder(config = config, shape)
         }
     }
-}

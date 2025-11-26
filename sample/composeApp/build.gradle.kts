@@ -4,6 +4,8 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlinx.serialization)
+
     alias(libs.plugins.compose.plugin)
     alias(libs.plugins.compose.compiler)
 }
@@ -36,6 +38,7 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(project(":decompose-ext"))
+            implementation(project(":compose-ext"))
         }
     }
 }

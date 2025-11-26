@@ -25,4 +25,12 @@ public object DailyLogger {
             delegate.rawLog(priority, tag, throwable, message)
         }
     }
+
+    public enum class LoggerType {
+        SCREEN,
+        STORE,
+        COMPONENT,
+        DEFAULT,
+        ERROR
+    }
 }

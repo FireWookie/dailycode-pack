@@ -1,9 +1,6 @@
 package ru.dailycode.pack.compose_ext.utils.ext
 
 import androidx.compose.runtime.Composable
-import org.jetbrains.compose.resources.StringResource
-import org.jetbrains.compose.resources.stringResource
-import proanalyzes.composeapp.generated.resources.Res
 
 //internal typealias StrRes = Res.string
 //
