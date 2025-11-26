@@ -1,6 +1,7 @@
 package ru.dailycode.pack.decompose_ext.logger
 
 internal class DefaultComponentLogger : ComponentLogger {
+
     override fun log(message: Any?, tag: String?) {
 
     }

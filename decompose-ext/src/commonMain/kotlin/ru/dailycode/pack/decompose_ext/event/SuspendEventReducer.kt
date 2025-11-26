@@ -8,6 +8,7 @@ interface SuspendEventReducer<E : Any> : ComponentEventHandler<E> {
     val scope: CoroutineScope
 
     suspend fun reduce(event: E) {
+
     }
 
     override fun onEvent(event: E) {
