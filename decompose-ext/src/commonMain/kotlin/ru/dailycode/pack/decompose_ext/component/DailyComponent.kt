@@ -7,13 +7,12 @@ import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.launch
 import ru.dailycode.pack.decompose_ext.lifecycle.coroutineScope
-import ru.dailycode.pack.decompose_ext.logger.ComponentLogger
-import ru.dailycode.pack.decompose_ext.logger.DefaultComponentLogger
+import ru.dailycode.pack.logger.DailyLogger
 
-abstract class DailyComponent<E: Any?>(
+abstract class DailyComponent<E : Any?>(
     context: ComponentContext
 ) : ComponentContext by context, DailyUIEvent<E> {
-    open val loggerDelegate: ComponentLogger = DefaultComponentLogger()
+    open val loggerDelegate = DailyLogger
 
     val componentScope = coroutineScope(Dispatchers.Main.immediate)
 
@@ -31,8 +30,7 @@ abstract class DailyComponent<E: Any?>(
         }
     }
 
-
-    fun log(message: Any?, tag: String?) = loggerDelegate.log(message, tag)
+    fun log(message: Any?, tag: String?) = loggerDelegate.d(message, tag)
 
 //    protected fun <Label : Any> Store<*, *, Label>.collectLabels(
 //        action: (Label) -> Unit

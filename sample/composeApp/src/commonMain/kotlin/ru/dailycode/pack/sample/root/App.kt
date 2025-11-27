@@ -16,18 +16,20 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.arkivanov.decompose.ExperimentalDecomposeApi
+import com.arkivanov.decompose.extensions.compose.experimental.stack.ChildStack
 import com.arkivanov.decompose.extensions.compose.subscribeAsState
 import com.arkivanov.essenty.backhandler.BackHandler
 import ru.dailycode.pack.compose_ext.components.input.TestButton
 import ru.dailycode.pack.compose_ext.components.input.bottom_sheet.DailyModalBottomSheet
 import ru.dailycode.pack.compose_ext.components.input.bottom_sheet.utils.BackHandlerProvider
 import ru.dailycode.pack.compose_ext.components.input.bottom_sheet.utils.BottomSheetBackHandle
-import ru.dailycode.pack.decompose_ext.compose.AnimatedChildStack
+import ru.dailycode.pack.decompose_ext.animations.platform.nativeAnimator
 import ru.dailycode.pack.decompose_ext.compose.BackHandler
-import ru.dailycode.pack.decompose_ext.compose.ChildStackAnimations
 import ru.dailycode.pack.sample.root.component.SampleComponent
 import ru.dailycode.pack.sample.slot.SampleSlotContent
 
+@OptIn(ExperimentalDecomposeApi::class)
 @Composable
 fun App(
     component: SampleComponent
@@ -36,15 +38,18 @@ fun App(
 
     Scaffold {
         Box(modifier = Modifier.padding(it).fillMaxSize()) {
-            // Используем AnimatedChildStack с анимацией slide
-            AnimatedChildStack(
+            ChildStack(
                 stack = component.childStack,
                 modifier = Modifier.fillMaxSize(),
-                animation = ChildStackAnimations.slide()
+                animation = nativeAnimator(
+                    backHandler = component.backHandler,
+                    isBackward = false,
+                    onBack = component::navigateBack,
+                )
             ) { child ->
-                when (child) {
+                when (val instance = child.instance) {
                     is SampleComponent.StackChild.Home -> HomeScreen(component)
-                    is SampleComponent.StackChild.Detail -> DetailScreen(child.id, component)
+                    is SampleComponent.StackChild.Detail -> DetailScreen(instance.id, component)
                     SampleComponent.StackChild.Settings -> SettingsScreen(component)
                 }
             }
