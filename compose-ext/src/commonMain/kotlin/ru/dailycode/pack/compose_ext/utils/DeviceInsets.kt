@@ -33,7 +33,7 @@ object DeviceInsets {
      */
     @Composable
     @NonRestartableComposable
-    fun navigationBarsPadding(): Dp {
+    public fun navigationBarsPadding(): Dp {
         val bottomPaddingPx = WindowInsets.Companion.navigationBars.getBottom(density)
         return with(density) { bottomPaddingPx.toDp() }
     }

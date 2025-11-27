@@ -39,7 +39,7 @@ fun String.kFormat(vararg args: Any): String {
     return sb.toString()
 }
 
-fun String.maskEmail(maskChar: Char = '*'): String {
+public fun String.maskEmail(maskChar: Char = '*'): String {
     val parts = this.split("@")
     if (parts.size != 2) return this
 

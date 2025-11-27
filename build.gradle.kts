@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "ru.dailycode.pack"
-version = "1.0.0"
+version = extra["library_version"].toString()
 
 
 subprojects {
